@@ -1,0 +1,112 @@
+/* Reset Style Code */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 99.9%;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+ol,
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+}
+input,
+button,
+textarea {
+  outline: 0;
+  border: 0;
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  border-radius: 0;
+  background: transparent;
+}
+input::placeholder {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  font-size: 12px;
+}
+
+/* Main Layout Code */
+body {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.center {
+  width: 90%;
+  height: auto;
+  margin: auto;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+}
+
+/* Background Image Style Code */
+.bg {position: absolute; left: 0; bottom: 0; transform: scale(1.2) translateY(70px); width: 100%;} /* transform의 속성값을 중복해서 사용할 때는 값을 콤마 없이 공백으로 나열 */
+
+/* Header Style code */
+header{background: #547c61; padding: 15px 0; z-index: 999; position: relative;}
+header a {font-size: 18px; color: #fff;}
+header .center {display: flex; justify-content: space-between; align-items: center;}
+
+.btn{width: 50px; cursor: pointer;}
+span.bar_line {display: block; width: 45%; box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3); height: 2px; background: #fff; transition: all 0.3s; position: relative; margin: auto; border-radius: 2px;}
+span.bar_line:nth-child(2) {margin: 5px auto;}
+
+/* menu icon animation style */
+.btn.active span.bar_line:nth-child(1){animation: ease 0.5s top forwards;}
+.btn.active span.bar_line:nth-child(2){animation: ease 0.5s scaled forwards;}
+.btn.active span.bar_line:nth-child(3){animation: ease 0.5s bottom forwards}
+
+.btn.not-active span.bar_line:nth-child(1){animation: ease 0.5s top-back forwards;}
+.btn.not-active span.bar_line:nth-child(2){animation: ease 0.5s scaled-back forwards;}
+.btn.not-active span.bar_line:nth-child(3){animation: ease 0.5s bottom-back forwards}
+
+/* Contents Bar Style Code */
+.contents_bar {padding: 70px 0;}
+.contents_bar .center{display: flex; justify-content: center; flex-direction: column;}
+.contents_bar .search_bar {display: flex; width: 100%; justify-content: center; border: 1px solid #547c61; border-radius: 20px; align-items: center;}
+.contents_bar .search_bar input {height: 30px; padding: 20px; width: 80%;}
+.contents_bar .search_bar button {position: relative; width: 20%; display: flex; justify-content: center; align-items: center;}
+.contents_bar .search_bar button:after{content: ''; position: absolute; width: 1px; background: #547c61; left: 0; height: 100%; top: 0;}
+.contents_bar .search_bar button img{width: 15px; background: #fff;}
+
+.contents_bar .drop_bar {width: 100%; margin-top: 10px; z-index: 1000;}
+.contents_bar .drop_bar .dropdown {width: 100%; background: #547c61; position: relative; font-size: 14px; color: #fff; text-align: center; border-radius: 20px; transition:all 0.3s;}
+.contents_bar .drop_bar .dropdown.on {border-radius: 20px 20px 0 0;}
+.contents_bar .drop_bar .select{cursor: pointer; display: block; padding: 12px 20px 12px 0;}
+.contents_bar .drop_bar .select span {display: inline-block; transform: translateX(10px);}
+.contents_bar .drop_bar .select i {font-size: 13px; cursor: pointer; float: right;}
+
+.contents_bar .dropdown_menu {position: absolute; width: 100%; left: 0; border: 1px solid #465f4e; background: #547c61; display: none;}
+.contents_bar .dropdown_menu li {padding: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid #547c61; border-top: 1px solid #ccc;}
+.contents_bar .dropdown_menu li a {width: 100%; color: #fff; font-size: 12px;}
+
+/* Search Position Page Style Code */
+.contents_bar.search_position {padding: 30px 0;}
+.map_img{position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index: 998;}
+.map_img img {width: 100%;}
+
+/* Bottom Box Style Code */
+.bt_box {width: 100%; height: 330px; background: #fff; position: absolute; bottom: 0; z-index: 998; border-radius: 15px 15px 0 0; overflow: hidden;}
+.bt_box span {width: 100%; color: #fff; background: #547c61; display: flex; padding: 8px 0; font-size: 16px; justify-content: center;}
