@@ -33,4 +33,6 @@ $(function(){
       $('.bt_box').animate({'bottom': h_bt_sl - h_bt_box},300);
     }
   });
+
 });
+

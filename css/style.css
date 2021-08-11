@@ -1,73 +1,35 @@
 /* Reset Style Code */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  width: 100%;
-  height: 99.9%;
-  overflow: hidden;
-}
-a {
-  text-decoration: none;
-  color: #333;
-}
-ol,
-ul {
-  list-style: none;
-}
-img {
-  display: block;
-}
-input,
-button,
-textarea {
-  outline: 0;
-  border: 0;
-  font-family: "Roboto", "Noto Sans KR", sans-serif;
-  font-size: 14px;
-  border-radius: 0;
-  background: transparent;
-}
-input::placeholder {
-  font-family: "Roboto", "Noto Sans KR", sans-serif;
-  font-size: 12px;
-}
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+html {width: 100%; height: 99.9%; overflow: hidden;}
+html#detail_html {overflow: auto;}
+a {text-decoration: none; color: #333;}
+ol, ul {list-style: none;}
+img {display: block;}
+input, button, textarea {outline: 0; border: 0; font-family: "Roboto", "Noto Sans KR", sans-serif; font-size: 14px; border-radius: 0; background: transparent;}
+input::placeholder {font-family: "Roboto", "Noto Sans KR", sans-serif; font-size: 12px;}
 
 /* Main Layout Code */
-body {
-  font-family: "Roboto", "Noto Sans KR", sans-serif;
-  font-size: 14px;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.center {
-  width: 90%;
-  height: auto;
-  margin: auto;
-}
-.wrap {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  position: relative;
-}
+body {font-family: "Roboto", "Noto Sans KR", sans-serif; font-size: 14px; width: 100%; height: 100%; overflow: hidden;}
+
+body#detail_page {height: auto; overflow: auto;}
+
+.clearfix:after {content: ""; display: block; clear: both;}
+.center {width: 90%; height: auto; margin: auto;}
+.wrap {width: 100%; height: 100%; overflow-x: hidden; overflow-y: hidden; position: relative;}
+
+body#detail_page .wrap {overflow-y: auto;}
+
+
 
 /* Background Image Style Code */
 .bg {position: absolute; left: 0; bottom: 0; transform: scale(1.2) translateY(70px); width: 100%;} /* transform의 속성값을 중복해서 사용할 때는 값을 콤마 없이 공백으로 나열 */
 
 /* Header Style code */
-header{background: #547c61; padding: 15px 0; z-index: 999; position: relative;}
+header{background: #547c61; padding: 15px 0; z-index: 999; position: relative; box-shadow: 0px 3px 23px -2px rgba(125,125,125,0.5);}
 header a {font-size: 18px; color: #fff;}
 header .center {display: flex; justify-content: space-between; align-items: center;}
+header.sticky {position: fixed; width: 100%;}
 
 .btn{width: 50px; cursor: pointer;}
 span.bar_line {display: block; width: 45%; box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3); height: 2px; background: #fff; transition: all 0.3s; position: relative; margin: auto; border-radius: 2px;}
@@ -110,3 +72,36 @@ span.bar_line:nth-child(2) {margin: 5px auto;}
 /* Bottom Box Style Code */
 .bt_box {width: 100%; height: 330px; background: #fff; position: absolute; bottom: 0; z-index: 998; border-radius: 15px 15px 0 0; overflow: hidden;}
 .bt_box span {width: 100%; color: #fff; background: #547c61; display: flex; padding: 8px 0; font-size: 16px; justify-content: center;}
+
+/* Owl Carousel Box Style Code */
+.carousel_cont {max-width: 1140px; padding: 0 15px; margin: auto; width: 100%;}
+.carousel_cont .carousel_item {margin: 20px 0;}
+.carousel_cont .item_card {box-shadow: 0px 0px 15px 0px rgba(204,204,204,0.76); border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 30px; font-weight: 500; border: 1px solid #eee; flex-direction: column; padding: 10px 20px;}
+.carousel_cont .item_card .sl_img {width: 100%; height: 100px; overflow: hidden; border-radius: 10px; display: flex; align-items: center; justify-content: center;}
+.carousel_cont .item_card .sl_txt {width: 100%; height: auto;}
+.carousel_cont .item_card .sl_txt h2 {font-size: 16px; font-weight: 500; text-align: center; margin-top: 10px; width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;} /*글자 넘칠경우 white-space : 글자 흐르지 않게 잡아줌, text-overflow:글자 넘칠 때 처리 ellipsis : 점 세개*/
+.carousel_cont .item_card .sl_txt p {font-size: 12px; color: #777; margin: 5px 0; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.carousel_cont .item_card .sl_icons {width: 100%; display: flex; justify-content: center; align-items: center;}
+.carousel_cont .item_card .sl_icons img {width: 20%; padding: 10px;}
+.carousel_cont .item_card .sl_icons em {font-style: normal; font-size: 11px;}
+
+/* Detail Page Style Code */
+.details {width: 100%; height: auto; position: relative;}
+.details .detail_bg {width: 100%; height: 200px; overflow: hidden; display: flex; align-items: center; position: relative;}
+.details .detail_bg .radi_bar {position: absolute; left: 0; bottom: 0; width: 100%; height: 20px; background: #f4f4f4; border-radius: 20px 20px 0 0;}
+.details .detail_bg img {width: 100%;}
+
+.details .detail_contents {width: 100%; height: auto; background: #f4f4f4;}
+.details .detail_wrap {width: 100%; height: auto; display: flex; flex-direction: column; align-items: center; padding-bottom: 10px;}
+.details .detail_tit {width: 90%; padding: 8px 0; background: #547c61; color: #fff; text-align: center; font-size: 14px; font-weight: 400; border-radius: 20px;}
+.details .line {width: 90%; height: 1px; background: #547c61; margin: 16px 0;}
+
+.details .detail_info {width: 90%;}
+.details .detail_info p {width: 100%; display: flex; justify-content: space-between; margin-bottom: 4px;}
+.details .detail_info p:last-child{margin-bottom: 0;}
+.details .detail_info span {display: flex; justify-content: flex-start;}
+.details .detail_info .info_ico{width: 20%; background: #547c61; border-radius: 20px 0 0 20px; color: #fff; display: flex; align-items: center; justify-content: center; padding: 10px 0;}
+.details .detail_info .info_txt{width: calc(80% - 4px); border: 1px solid #547c61; border-radius: 0 20px 20px 0; font-size: 12px; color: #555; padding: 5px;}
+
+
+.details .info_desc {width: 90%; height: auto; border: 1px solid #547c61; padding: 10px; font-size: 12px; font-weight: 400; color: #555; padding:10px;}
