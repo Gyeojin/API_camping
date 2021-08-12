@@ -1,64 +1,74 @@
 const mapXparam = new URLSearchParams(location.search).get('lon');//주소로 넘어오는 위도, 경도값을 받아오는 과정
 const mapYparam = new URLSearchParams(location.search).get('lat');
-console.log(mapXparam); //문자열로 반환
-console.log(mapYparam);
+const numMapx = Number(mapXparam); //문자열로 반환
+const numMapY = Number(mapYparam);
+const detailBox = document.querySelector('.detail_contents');
+const imgBox = document.querySelector('.detail_bg');
 
 ajax : //비동기 데이터 리딩 형식
 $.ajax({
-  url: `/APIcamp/php/location.php?lat=${lat}&lon=${lon}&radi=${radiVal}`,
+  url: `/APIcamp/php/detail.php?lat=${numMapY}&lon=${numMapx}`,
   type:'GET',
   dataType : "json",
   success: function(result){
     const item = result.body.items.item;
-    let currentItems = "";
+    console.log(item);
+    let imgItem = "";
+    let detailItem = "";
 
-    item.forEach(function(data){ //데이터들을 각각 뽑아오는 과정
-      console.log(data);
-      currentItems = `
-        <div class="carousel_item">
-          <div class="item_card">
-            <a href="/APIcamp/detail_position.php?lon=${data.mapX}&lat=${data.mapY}">
-              <div class="sl_img">
-                <img src="${data.firstImageUrl}" alt="" onerror="this.src='/APIcamp/img/no_image.png'">
-              </div>
-            </a>
-            <div class="sl_txt">
-              <h2>${data.facltNm}</h2>
-              <p>${data.addr1}</p>
-            </div>
-            <div class="sl_icons">
-              <img src="img/ico_mart.png" alt="">
-              <em>${data.sbrsCl}</em>
-            </div>
-          </div>
+    imgItem = `<img src="${item.firstImageUrl}" alt="" onerror="this.src='/APIcamp/img/no_image.png'"><span class="radi_bar"></span>`;
+    imgBox.innerHTML = imgItem;
+
+    detailItem = `
+      <div class="detail_wrap">
+        <h2 class="detail_tit">${item.addr2}</h2>
+        <span class="line"></span>
+        <div class="detail_info">
+          <p>
+            <span class="info_ico"><i class="fa fa-map-marker"></i></span>
+            <span class="info_txt">${item.addr1}</span>
+          </p>
+          <p>
+            <span class="info_ico"><i class="fa fa-dog"></i></span>
+            <span class="info_txt">${item.animalCmgCl}</span>
+          </p>
+          <p>
+            <span class="info_ico"><i class="fa fa-cutlery"></i></span>
+            <span class="info_txt">${item.sbrsCl}</span>
+          </p>
+          <p>
+            <span class="info_ico"><i class="fa fa-clock"></i></span>
+            <span class="info_txt">${item.operDeCl} / ${item.operPdCl}</span>
+          </p>
         </div>
-      `;
-      contentsBox.innerHTML += currentItems;
-    });
-
-    currentItems = ``;
-    //console.log(item);
-
-
-
+        <span class="line"></span>
+        <h2 class="detail_tit">캠핑장 소개</h2>
+        <span class="line"></span>
+        <div class="info_desc">
+          ${item.intro}
+        </div>
+        <span class="line"></span>
+        <h2 class="detail_tit">위치 지도</h2>
+        <div class="detail_map" id="map"></div>
+      </div>
+    `;
+    detailBox.innerHTML = detailItem;
     // google map logics
     var map;
 
     function initMap() {
-      var centerTarget = { lat: Number(lat) ,lng: Number(lon)};
+      var centerTarget = {lat: numMapY ,lng: numMapx};
       map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
+          zoom: 12,
           center: centerTarget
         });
 
-        for(let i= 0; i < item.length; i++){
-          new google.maps.Marker({
-            position: new google.maps.LatLng(Number(item[i].mapY), Number(item[i].mapX)),
-            map: map,
-            icon: '/APIcamp/img/marker.png'
-          });
-        }
-    }
+        new google.maps.Marker({
+          position: centerTarget,
+          map: map,
+          icon: '/APIcamp/img/marker.png'
+        });
+      }
     initMap();
   }
 });

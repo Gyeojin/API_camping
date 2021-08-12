@@ -32,11 +32,11 @@
 
     <div class="details">
       <div class="detail_bg">
-        <img src="img/ex.jpg" alt="">
-        <span class="radi_bar"></span>
+        <!-- <img src="img/ex.jpg" alt=""> -->
+        <!-- <span class="radi_bar"></span> -->
       </div>
       <div class="detail_contents">
-        <div class="detail_wrap">
+        <!-- <div class="detail_wrap">
           <h2 class="detail_tit">캠핑장 이름</h2>
           <span class="line"></span>
           <div class="detail_info">
@@ -66,13 +66,16 @@
           <span class="line"></span>
           <h2 class="detail_tit">위치 지도</h2>
           <div class="detail_map"></div>
-        </div>
+        </div> -->
+        <!-- End of detail_wrap -->
       </div>
     </div>
     <!-- end of details -->
 
   </div>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGvhWDoOmKcxP8jEQDd9mqL3KPlM9zlZM&region=kr"></script>
   <script src="/APIcamp/js/main.js"></script>
   <script src="/APIcamp/js/detail_position.js"></script>
   <script>
