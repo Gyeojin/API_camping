@@ -23,3 +23,7 @@
 
 6.인증키 : 
 B3xAD2Ck93FPbCmJPTuhYuSOZLrtbLBz0hZ5w5JVvwq7wAZP2jpuRIYQUkFrcRExXxZlp%2BQWeN5nObGl3RMvTg%3D%3D
+
+7.해결과제
+-미제공 데이터 undefined 처리
+-로딩 처리

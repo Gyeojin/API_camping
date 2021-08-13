@@ -18,29 +18,33 @@ $.ajax({
     let currentItems = "";
     //console.log(Array.isArray(item)); //Array.isArray(); 배열인지 아닌지를 판별해서 true,false 로 얘기해준다.
 
-    if(Array.isArray(item)){
-      item.forEach(function(data){
-        //console.log(data);
-        currentItems = `
-          <div class="carousel_item">
-            <div class="item_card">
-              <a href="/APIcamp/detail_position.php?lon=${data.mapX}&lat=${data.mapY}">
-                <div class="sl_img">
-                  <img src="${data.firstImageUrl}" alt="" onerror="this.src='/APIcamp/img/no_image.png'">
-                </div>
-              </a>
-              <div class="sl_txt">
-                <h2>${data.facltNm}</h2>
-                <p>${data.addr1}</p>
+    function itemDOM(el){
+      currentItems = `
+        <div class="carousel_item">
+          <div class="item_card">
+            <a href="/APIcamp/detail_position.php?lon=${el.mapX}&lat=${el.mapY}">
+              <div class="sl_img">
+                <img src="${el.firstImageUrl}" alt="" onerror="this.src='/APIcamp/img/no_image.png'">
               </div>
-              <div class="sl_icons">
-                <img src="img/ico_mart.png" alt="">
-                <em>${data.sbrsCl}</em>
-              </div>
+            </a>
+            <div class="sl_txt">
+              <h2>${el.facltNm}</h2>
+              <p>${el.addr1}</p>
+            </div>
+            <div class="sl_icons">
+              <img src="img/ico_mart.png" alt="">
+              <em>${el.sbrsCl}</em>
             </div>
           </div>
-        `;
-        contentsBox.innerHTML += currentItems; //반드시 누적해서 찍어줘야함 (+=)
+        </div>
+      `;
+      contentsBox.innerHTML += currentItems; //반드시 누적해서 찍어줘야함 (+=)
+    }
+
+    if(Array.isArray(item)){
+      item.forEach(function(data){
+        console.log(data);
+        itemDOM(data); //data를 itemDOM 함수 안으로 파라미터 전달
 
         // google map logics HERE!
         var map;
@@ -62,25 +66,7 @@ $.ajax({
         initMap();
       });
     } else {
-      currentItems = `
-        <div class="carousel_item">
-          <div class="item_card">
-            <a href="/APIcamp/detail_position.php?lon=${item.mapX}&lat=${item.mapY}">
-              <div class="sl_img">
-                <img src="${item.firstImageUrl}" alt="" onerror="this.src='/APIcamp/img/no_image.png'">
-              </div>
-            </a>
-            <div class="sl_txt">
-              <h2>${item.facltNm}</h2>
-              <p>${item.addr1}</p>
-            </div>
-            <div class="sl_icons">
-              <img src="img/ico_mart.png" alt="">
-              <em>${item.sbrsCl}</em>
-            </div>
-          </div>
-        </div>
-      `;
+      itemDOM(item); //item을 itemDOM 함수 안으로 파라미터 전달
       contentsBox.innerHTML += currentItems; //반드시 누적해서 찍어줘야함 (+=)
     }
 

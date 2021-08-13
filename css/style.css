@@ -67,12 +67,18 @@ span.bar_line:nth-child(2) {margin: 5px auto;}
 .contents_bar .dropdown_menu li {padding: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid #547c61; border-top: 1px solid #ccc;}
 .contents_bar .dropdown_menu li a {width: 100%; color: #fff; font-size: 12px;}
 
+
 /* Landing Animation style Code */
 #landing{position: fixed; width: 100%; height: 100%; background: #547c61; z-index: 1001; top: 0; left: 0; display: flex; align-items: center; justify-content: center; flex-direction: column;}
-#landing.start {animation: start 0.5s 1; animation-fill-mode: forwards;}
+#landing.start {animation: start 0.5s 1; animation-fill-mode: forwards; animation-delay: 2.5s;}
 @keyframes start {
-
+  /* 0%{opacity: 1; visibility: 1;}
+  100%{opacity: 0; visibility: 0;} */
+ 0%{top: 0;}
+ 100%{top: -100%;}
 }
+#landing.started {top: -100%;} /*쿠키 값(value)이 started 이면 class 붙여주는 용도*/
+
 #landing .landing_logo {background: #f4f4f4; width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: scale-up 1s 1;}
 @keyframes scale-up {
   0%{transform: scale(0); opacity: 0;}
@@ -80,8 +86,16 @@ span.bar_line:nth-child(2) {margin: 5px auto;}
   70%{transform: scale(0.7);}
   100%{transform: scale(1); opacity: 1;}
 }
+
 #landing .landing_logo img{width: 60%;}
-#landing h2 {color: #f4f4f4; font-weight: 400; font-size: 16px; margin: 10px 0;}
+#landing h2 {color: #f4f4f4; font-weight: 400; font-size: 16px; margin: 10px 0; animation: show-up 1s 1; transform: translateY(200px); opacity: 0; animation-fill-mode: forwards; animation-delay: 1s;}
+
+@keyframes show-up {
+  0%{transform: translateY(200px); opacity: 0;}
+  45%{transform: translateY(-15px);}
+  70%{transform: translateY(15px);}
+  100%{transform: translateY(0); opacity: 1;}
+}
 
 
 /* Search Position Page Style Code */
