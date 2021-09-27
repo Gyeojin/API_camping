@@ -4,10 +4,7 @@
 *공공 API 기반 웹앱 프로토타입 개발*
 
 <br>
-
-![pf-content_fofo](https://user-images.githubusercontent.com/84562763/134626341-a407aa39-5201-43fc-a953-6916a6478eb7.jpg)
-![pf-content_fofo1](https://user-images.githubusercontent.com/84562763/134626347-46fc0f15-8552-42de-914a-f4bcbaa612d5.jpg)
-![pf-content_fofo2](https://user-images.githubusercontent.com/84562763/134626349-0878fac6-3c0f-4132-b0e6-0aecddc34e4d.jpg)
+![APIcamp](https://user-images.githubusercontent.com/84562763/134852347-7c1f3453-b6f8-456f-9fe4-0eb19cf3a944.gif)
 
 <p align="center">
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/></a> &nbsp
